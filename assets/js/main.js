@@ -163,7 +163,7 @@ const getLocationBySubmit = () => {
     }
 
     const apiKey = '0f8c88146a435b8db9d6af1cacbbc02a';
-    const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
+    const url = `https://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
 
     const response = await fetch(url);
     const data = await response.json();
