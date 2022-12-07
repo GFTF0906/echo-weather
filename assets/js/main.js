@@ -112,7 +112,8 @@ const setInfo = async (data) => {
 };
 
 const getDateAndTime = async (lat, lon) => {
-  const apiKey = config.GEOAPIFY_API_KEY;
+  
+  const apiKey = 'e86f3fb45d3541628e622cef44bd90e3';
   const url = `https://api.geoapify.com/v1/geocode/reverse?lat=${lat}&lon=${lon}&format=json&apiKey=${apiKey}`;
 
   const response = await fetch(url);
@@ -160,8 +161,8 @@ const getLocationBySubmit = () => {
       alert('Please, type a valid city.');
       return;
     }
-    
-    const apiKey = config.OPEN_WEATHER_API_KEY;
+
+    const apiKey = '0f8c88146a435b8db9d6af1cacbbc02a';
     const url = `http://api.openweathermap.org/geo/1.0/direct?q=${city}&limit=5&appid=${apiKey}`;
 
     const response = await fetch(url);
