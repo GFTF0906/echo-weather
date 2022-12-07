@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+
+  <link rel="stylesheet" href="./assets/css/main.css">
+  
+  <script defer src="./config.js"></script>
+  <script defer src="./assets/js/main.js"></script>
+
+  <title>Echo Weather</title>
+</head>
+<body class="align-flex-column">
+
+  <header class="header align-flex-column">
+    <h1 class="headers page__title">Echo Weather</h1>
+    <img src="./assets/images/logo.png" alt="Logo" class="logo">
+  </header>
+
+  <section class="loader__container">
+    <div class="spinner"></div>
+  </section>
+
+  <main class="main grid-col-2">
+    <section class="search align-flex-column">
+      <h2 class="headers search__title">Easy, Fast and Practical.</h2>
+      <p class="search__p">You just need to enter a city name, to see the local weather informations!</p>
+
+      <form class="form__search align-flex-column">
+        <label for="cityName" class="hidden">Type a city latitude.</label>
+        <input id="cityName" class="inputs city" type="text" placeholder="Type a city name..." maxlength="53" autocomplete="off" required>
+        <button class="search__btn">Search</button>
+      </form>
+    </section>
+
+    <section class="weather__box align-flex-column">
+
+      <section class="first__section align-flex-column">
+        <h3 class="location__name"></h3>
+
+        <section class="dates align-flex-column">
+          <h6 class="headers date"></h6>
+        </section>
+
+        <h3 class="headers weather__description"></h3>
+
+        <section class="temperature grid-col-2">
+          <h2 class="location__realtemperature"></h2>
+          <img src="" alt="Weather image" class="weather__image">
+        </section>
+
+      </section>
+
+      <section class="info grid-col-2">
+
+        <section class="fs__info grid-col-2">
+          <article class="in__wrapper align-flex-column">
+            <h4 class="headers">Max</h4>
+            <h4 class="location__maxtemperature"></h4>
+          </article>
+          <article class="in__wrapper align-flex-column">
+            <h4 class="headers">Min</h4>
+            <h4 class="location__mintemperature"></h4>
+          </article>
+        </section>
+
+        <section class="ss__info grid-col-3">
+          <article class="in__wrapper align-flex-column">
+            <h4 class="headers">Humidity</h4>
+            <h4 class="location__humidity"></h4>
+          </article>
+          <article class="in__wrapper align-flex-column">
+            <h4 class="headers">Pressure</h4>
+            <h4 class="location__pressure"></h4>
+          </article>
+          <article class="in__wrapper align-flex-column">
+            <h4 class="headers">Clouds</h4>
+            <h4 class="location__clouds"></h4>
+          </article>
+        </section>
+
+      </section>
+    </section>
+  </main>
+
+</body>
+</html>
