@@ -16,16 +16,60 @@ const dateEl = document.querySelector('.date');
 const btnSearch = document.querySelector('.search__btn');
 const loaderContainer = document.querySelector('.loader__container');
 
+const mainEl = document.querySelector('.main');
+const headerEl = document.querySelector('.header');
+
 const displayLoading = () => {
+  document.body.appendChild(loaderContainer);
   loaderContainer.style.display = 'flex';
 };
 
 const hideLoading = () => {
   loaderContainer.style.display = 'none';
+  document.body.removeChild(loaderContainer);
 };
 
-const formatTemperature = (temperature) => {
+const kelvinToCelsius = (temperature) => {
   return Math.floor(temperature - 273.15);
+};
+
+const kelvinToFarenheit = (temperature) => {
+  return Math.floor((temperature - 273.15) * 9 / 5 + 32);
+};
+
+const setTemperature = (data) => {
+
+  const temperaturesOptions = document.querySelectorAll('.opt');
+  
+  let realTemperature = kelvinToCelsius(data.main.temp);
+  let maxTemperature = kelvinToCelsius(data.main.temp_max);
+  let minTemperature = kelvinToCelsius(data.main.temp_min);
+  let letter = 'C';
+
+  // DEFAULT
+  locMaxTemperatureEl.textContent = maxTemperature + '°' + letter;
+  locMinTemperatureEl.textContent = minTemperature + '°' + letter;
+  locRealTemperatureEl.textContent = realTemperature + '°' + letter;
+  
+  temperaturesOptions.forEach(opt => {
+    opt.addEventListener('click', e => {
+      if (e.target.innerText === 'C') {
+        letter = 'C';
+        realTemperature = kelvinToCelsius(data.main.temp);
+        maxTemperature = kelvinToCelsius(data.main.temp_max);
+        minTemperature = kelvinToCelsius(data.main.temp_min);
+      } else {
+        letter = 'F';
+        realTemperature = kelvinToFarenheit(data.main.temp);
+        maxTemperature = kelvinToFarenheit(data.main.temp_max);
+        minTemperature = kelvinToFarenheit(data.main.temp_min);
+      }
+
+      locMaxTemperatureEl.textContent = maxTemperature + '°' + letter;
+      locMinTemperatureEl.textContent = minTemperature + '°' + letter;
+      locRealTemperatureEl.textContent = realTemperature + '°' + letter;
+    });
+  });
 };
 
 const setBgColor = (dateAndTime) => {
@@ -81,10 +125,6 @@ const setInfo = async (data) => {
   const locationName = data.name;
   const locationCountry = data.sys.country;
 
-  const realTemperature = formatTemperature(data.main.temp);
-  const maxTemperature = formatTemperature(data.main.temp_max);
-  const minTemperature = formatTemperature(data.main.temp_min);
-
   const locHumidity = data.main.humidity;
   const locPressure = data.main.pressure;
   const locClouds = data.clouds.all;
@@ -98,13 +138,12 @@ const setInfo = async (data) => {
   weatherDescriptionEl.textContent = weatherDescription;
 
   locNameEl.textContent = `${locationName}, ${locationCountry}`;
-  locMaxTemperatureEl.textContent = maxTemperature + '°';
-  locMinTemperatureEl.textContent = minTemperature + '°';
-  locRealTemperatureEl.textContent = realTemperature + '°';
 
   locHumidityEl.textContent = locHumidity + '%';
   locCloudsEl.textContent = locClouds + '%'
   locPressureEl.textContent = locPressure + ' hPa';
+
+  setTemperature(data);
 
   dateEl.textContent = dateAndTime;
 

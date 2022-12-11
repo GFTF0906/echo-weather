@@ -31,6 +31,7 @@ Echo Weather is a project whose main objective is the practicality of offering m
 
 - View real temperature, date and hour of any city you want
 - Maximum, minimum temperature and weather description
+- View the temperature in celsius, and in farenheit
 - Percentage of clouds, pressure and humidity of the desired location
 - Changes background colors depending on the time of day
 - Possibility to view the layout on any device
@@ -45,7 +46,7 @@ To use it, it is only necessary to write a city and click on search, or just ent
 
 ## Project Status
 
-Project is: _in progress_
+Project is: _in constant devel_
 
 ## Room for Improvement
 

@@ -196,6 +196,30 @@ img, picture, svg, video {
   font-size: 1.2rem; 
 }
 
+.temperature {
+  column-gap: 0;
+}
+
+.temperatures {
+  justify-items: start;
+  align-items: start;
+  column-gap: 0.5rem;
+}
+
+.temp__opts {
+  flex-flow: row wrap;
+  gap: 0.3rem;
+}
+
+.temp__opts > h2 {
+  cursor: pointer;
+}
+
+.temp__opts > .first {
+  padding: 0.2rem;
+  border-right: 0.2rem solid var(--CLR-LIGHT-BLACK);
+}
+
 .location__realtemperature {
   font-size: 2.5rem;
 }
@@ -242,11 +266,38 @@ img, picture, svg, video {
 }
 
 /* RESPONSIVE STYLES */
+@media (min-width: 2561px) {
+
+  body {
+    font-size: 2rem;
+  }
+
+  .logo {
+    width: 6%;
+  }
+
+  .search__title, .page__title {
+    font-size: 1.8rem;
+  }
+
+  .search__p {
+    font-size: 1.4rem;
+  }
+  
+  .form__search {
+    font-size: 1.5rem;
+  }
+
+  .location__pressure {
+    font-size: 1.9rem;
+  }
+
+}
 
 /* 
   ##Device = Desktops
 */
-@media (min-width: 1281px) {
+@media (min-width: 1281px) and (max-width: 2560px) {
 
   .main {
     margin: 5rem 3rem 0;
@@ -275,6 +326,19 @@ img, picture, svg, video {
   
 }
 
+@media (max-width: 1280px) {
+  body:has(.loader__container) > main, body:has(.loader__container) > header {
+    display: none;
+  }
+
+  body:not(:has(.loader__container)) main, body:not(:has(.loader__container)) footer, .temperature {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+  }
+}
+
 /* 
 ##Device = Laptops, Desktops
 */
@@ -286,15 +350,8 @@ img, picture, svg, video {
   }
   
   /* MAIN */
-  .main, .temperature {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-  }
-
   .main {
-    margin: 8rem 0 4rem;
+    margin: 8rem 0 2rem;
   }
     
 }
@@ -310,13 +367,6 @@ img, picture, svg, video {
   }
   
   /* MAIN */
-  .main, .temperature {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-  }
-
   .main {
     margin: 8rem 0 4rem;
   }
@@ -334,13 +384,6 @@ img, picture, svg, video {
   }
   
   /* MAIN */
-  .main, .temperature {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
-  }
-
   .main {
     margin: 8rem 0 4rem;
     width: 80%;
@@ -349,6 +392,26 @@ img, picture, svg, video {
   .weather__box, .info, .fs__info, .ss__info {
     display: block;
     text-align: center;
+  }
+
+  .weather__box {
+    padding: 2rem;
+  }
+
+  .location__name, .dates {
+    position: initial;
+  }
+
+  .dates {
+    margin-bottom: 2rem;
+  }
+
+  .in__wrapper {
+    margin: 1rem;
+  }
+
+  .ss__info {
+    margin-top: 2rem;
   }
   
 }
@@ -369,14 +432,6 @@ img, picture, svg, video {
 
   .logo {
     width: 30%;
-  }
-
-  /* MAIN */
-  .main, .temperature {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-flow: column wrap;
   }
 
   .search__title {
@@ -400,22 +455,29 @@ img, picture, svg, video {
 
   .weather__box {
     display: block;
-    padding: 7rem 2rem;
+    padding: 4rem 2rem;
     width: 100%;
   }
 
-  .location__name {
-    left: 1rem;
+  .location__name, .dates {
+    position: initial;
   }
 
   .dates {
-    top: 9%;
-    right: 7.3rem;
-    font-size: 0.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .in__wrapper {
+    margin: 1rem;
   }
 
   .ss__info {
-    margin-top: 1rem;
+    margin-top: 2rem;
+  }
+
+  .loader__container {
+    width: 100%;
+    height: 280vh;
   }
 
 }

@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
-
   <link rel="stylesheet" href="./assets/css/main.css">
   
   <script defer src="./assets/js/main.js"></script>
@@ -48,7 +47,13 @@
         <h3 class="headers weather__description"></h3>
 
         <section class="temperature grid-col-2">
-          <h2 class="location__realtemperature"></h2>
+          <div class="temperatures grid-col-2">
+            <h2 class="location__realtemperature"></h2>
+            <div class="temp__opts align-flex-column">
+              <h2 class="first opt">C</h2>
+              <h2 class="opt">F</h2>
+            </div>
+          </div>
           <img src="" alt="Weather image" class="weather__image">
         </section>
 
